@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.classifieds'|trans }}
+{% endblock %}
+
+
+
+
+{% block body %}
+    <a href="{{ url('classified_index') }}"><h5>{{ 'title.classifieds'|trans }}</h5></a>
+
+    <div class="filter">
+    <a href="{{ path('classified_index') }}">
+        <h3>Wszystkie ogłoszenia </a> >>Kategorie </h3>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+            <a href="{{ path('tag_add') }}" class="btn btn-warning" title="{{ 'action.add'|trans }}">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                {{ 'action.add'|trans }}
+            </a>
+        </div>
+
+    {% endif %}
+
+    <div class="katergorie">
+    {% if tags is defined and tags|length %}
+
+        {% for item in tags %}
+
+
+           <a href="{{ path('tag_view', {'id': item.id}) }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+                                    {{ item.name }}
+           </a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('tag_edit', {'id': item.id}) }}"  title="{{ 'action.edit'|trans }}">
+                                    {{ 'action.edit'|trans }}
+                </a>
+                <a href="{{ path('tag_delete', {'id': item.id}) }}"  title="{{ 'action.delete'|trans }}">
+                                    {{ 'action.delete'|trans }}
+                </a>
+
+            {% endif %}
+
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            {{ 'message.empty_list'|trans }}
+        </div>
+    {% endif %}
+
+    </div class="katergorie">
+    </div>
+{% endblock %}

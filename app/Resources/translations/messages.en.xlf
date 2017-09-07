@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="title.classifieds">
+                <source>title.classifieds</source>
+                <target>Serwis ogłoszeniowy</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Identity number</target>
+            </trans-unit>
+            <trans-unit id="label.url">
+                <source>label.URL</source>
+                <target>adress URL</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>We haven't any position on list</target>
+            </trans-unit>
+            <trans-unit id="title.tags">
+                <source>title.tags</source>
+                <target>Wybierz kategorię</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Nazwa ogłoszenia</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="action.view">
+                <source>action.view</source>
+                <target>Szczegóły</target>
+            </trans-unit>
+            <trans-unit id="action.add">
+                <source>action.add</source>
+                <target>Dodaj kategorię</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="title.add_tag">
+                <source>title.add_tag</source>
+                <target>Add</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="title.tag_edit">
+                <source>title.tag_edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Back to list</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="title.delete_tag">
+                <source>title.delete_tag</source>
+                <target>Delete this</target>
+            </trans-unit>
+            <trans-unit id="f2882460e5a66f3ab0f96a8d9d6b086f1cf51c74" resname="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target state="new">Dodawanie zakończone sukcesem</target>
+            </trans-unit>
+            <trans-unit id="title.tag_delete">
+                <source>title.tag_delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                <source>label.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Treść ogłoszenia</target>
+            </trans-unit>
+            <trans-unit id="label.price">
+                <source>label.price</source>
+                <target>Cena</target>
+            </trans-unit>
+           <trans-unit id="title.classified_add">
+                <source>title.classified_add</source>
+                <target>Dodaj ogłoszenie</target>
+           </trans-unit>
+           <trans-unit id="label.tag">
+                 <source>label.tag</source>
+                 <target>Kategoria ogłoszenia</target>
+            </trans-unit>
+            <trans-unit id="label.photo">
+                  <source>label.photo</source>
+                  <target>Zdjęcie</target>
+            </trans-unit>
+           <trans-unit id="search">
+                  <source>search</source>
+                  <target>Szukaj</target>
+           </trans-unit>
+           <trans-unit id="add">
+                  <source>add</source>
+                  <target>Dodaj ogłoszenie</target>
+           </trans-unit>
+           <trans-unit id="category">
+                  <source>category</source>
+                  <target>Filtruj</target>
+           </trans-unit>
+           <trans-unit id="security.login.username">
+                  <source>security.login.username</source>
+                  <target>Login</target>
+           </trans-unit>
+           <trans-unit id="label.login">
+                  <source>label.login</source>
+                  <target>Zaloguj się</target>
+           </trans-unit>
+           <trans-unit id="label.registration">
+                  <source>label.registration</source>
+                  <target>Zarejestruj się</target>
+           </trans-unit>
+           <trans-unit id="label.users">
+                  <source>label.users</source>
+                  <target>Baza użytkowników</target>
+           </trans-unit>
+           <trans-unit id="label.profil">
+                  <source>label.profil</source>
+                  <target>Profil użytkownika</target>
+           </trans-unit>
+           <trans-unit id="label.logout">
+                  <source>label.logout</source>
+                  <target>Wyloguj</target>
+           </trans-unit>
+           <trans-unit id="title.edit_tag">
+                   <source>title.edit_tag</source>
+                   <target>Edycja</target>
+           </trans-unit>
+           <trans-unit id="tag_edit">
+                   <source>tag_edit</source>
+                   <target>Edytuj</target>
+           </trans-unit>
+           <trans-unit id="edit">
+                   <source>edit</source>
+                   <target>Edytowany</target>
+           </trans-unit>
+           <trans-unit id="button.edit">
+                   <source>button.edit</source>
+                   <target>Edytuj</target>
+           </trans-unit>
+           <trans-unit id="button.delete">
+                   <source>button.delete</source>
+                   <target>Usuń</target>
+           </trans-unit>
+           <trans-unit id="title.tag_add">
+                    <source>title.tag_add</source>
+                    <target>Dodaj ogłoszenie</target>
+           </trans-unit>
+           <trans-unit id="change.password">
+                    <source>change.password</source>
+                    <target>Zmień swoje hasło</target>
+           </trans-unit>
+           <trans-unit id="title.profile">
+                    <source>title.profile</source>
+                    <target>Profil użytkownika</target>
+           </trans-unit>
+           <trans-unit id="title.books.delete">
+                     <source>title.books.delete</source>
+                     <target>Czy chcesz usunąć?</target>
+           </trans-unit>
+           <trans-unit id="delete">
+                     <source>delete</source>
+                     <target>Usuń</target>
+           </trans-unit>
+           <trans-unit id="label.username">
+                      <source>label.username</source>
+                      <target>Nazwa użytkownika</target>
+           </trans-unit>
+           <trans-unit id="label.password">
+                     <source>label.password</source>
+                     <target>Hasło</target>
+           </trans-unit>
+
+
+
+
+
+
+
+
+
+        </body>
+    </file>
+</xliff>

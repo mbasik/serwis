@@ -1,0 +1,61 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+# app/config/services.yml
+    app.repository.bookmark:
+        class: AppBundle\Repository\BookmarkRepository
+
+#app/config/services.yml
+    app.repository.csvbookmark:
+        class: AppBundle\Repository\BookmarkCsvRepository
+# app/config/services.yml
+    app.repository.tag:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Tag
+# app/config/services.yml
+    app.form.bookmarks:
+        class: AppBundle\Form\BookmarkType
+        arguments: ['@app.repository.tag']
+        tags:
+            - { name: form.type }
+    app.form.classified:
+        class: AppBundle\Form\ClassifiedType
+        arguments: ['@app.repository.tag']
+        tags:
+            - { name: form.type }
+        publishers:
+            - { name: form.type }
+        photo:
+            - { name: form.type }
+
+    app.repository.classified:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Classified
+# ...
+    app.form.classified:
+        class: AppBundle\Form\ClassifiedType
+        arguments: ['@app.repository.tag']
+        tags:
+            - { name: form.type }
+
+    app.doctrine_listener.photo_upload:
+        class: AppBundle\Service\FileUploader
+        arguments: ['%photos_directory%']
+
+# ...
+    app.doctrine_listener.photo_upload:
+        class: AppBundle\EventListener\PhotoUploadListener
+        arguments: ['@app.service.file_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

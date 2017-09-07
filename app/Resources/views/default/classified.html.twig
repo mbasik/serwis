@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.classifieds'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.classifieds'|trans }}</h1>
+    <h2>WYSZUKIWARKA</h2>
+    <form action="{{ url('classified_search_index') }}" method="get">
+        <div class="col-sm-5 col-sm-offset-3">
+            <input type="text" class="form-control" name="string">
+        </div>
+        <div class="col-sm-1">
+            <input type="submit" class="btn btn-info btn-flat" value="{{ 'search'|trans }}">
+        </div>
+    </form>
+    <br><h4>motoryzacja | nieruchomości | AGD | praca</h4>
+    <div class="notices"></div>
+    {% if classifieds is defined and classifieds|length %}
+            {% for item in classifieds %}
+                    <h3>{{ item.name }}</h3>
+                   <br>{{ item.price }}
+                    <br>
+                        <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                            <a href="{{ path('classified_view', {'id': item.id}) }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                {{ 'action.view'|trans }}
+                            </a>
+                <a href="{{ path('classified_add', {'id': item.id}) }}" class="btn btn-default" title="{{ 'action.add'|trans  }}">
+                        </div>
+            {% endfor %}
+    </div>
+
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            {{ 'message.empty_list'|trans }}
+        </div>
+    {% endif %}
+{% endblock %}

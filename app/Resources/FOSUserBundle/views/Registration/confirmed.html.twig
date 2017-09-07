@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.registration.success'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{ 'title.registration.success'|trans }}</h2>
+                <h3 class="section-subheading text-muted">{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</h3>
+<a href="{{ path('classified_index') }}" title="Powrót do serwisu">
+            </div>
+            {% if app.session is not empty %}
+                {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+                {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+            {% endif %}
+        </div>
+    </div>
+  </section>
+{% endblock %}

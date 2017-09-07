@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if bookmark is defined and bookmark|length %}
+            <ul>
+            <li>{{ bookmark.URL }}</li>
+            {% for tag in bookmark.Tags%}
+               <li> {{ tag }} </li>
+            {% endfor %}
+            </ul>
+
+    {% else %}
+    <p>
+        {{ 'message.empty_list'|trans }}
+    </p>
+    {% endif %}
+
+{% endblock %}

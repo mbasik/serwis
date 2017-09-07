@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    {% block stylesheets %}
+        {% stylesheets '@bootstrap_css' '../app/Resources/public/css/*' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
+</head>
+    <body>
+    <div class="login_label">
+    {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('user_index') }}">{{ 'label.users'|trans }}</a>
+        </li>
+    {% endif %}
+    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('fos_user_profile_show') }}">{{ 'label.profil'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ path('fos_user_security_logout') }}">{{ 'label.logout'|trans }}</a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ path('fos_user_security_login') }}">{{ 'label.login'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ path('fos_user_registration_register') }}">{{ 'label.registration'|trans }}</a>
+        </li>
+    {% endif %}
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {% for msg in app.session.flashBag.get('success') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+        <div class="container">
+            {% include 'default/_flash_messages.html.twig' %}
+            {% block body %}{% endblock %}
+        </div>
+
+        {% block javascripts %}
+            {% javascripts '@jquery' '@bootstrap_js' '../app/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.add_bookmark'|trans }}
+{% endblock %}
+
+{% block body %}
+
+  {% include 'default/_form.html.twig' with {
+    page_title: 'title.bookmark_add',
+    attr: {
+        method: 'post',
+        action: url('bookmark_add')
+    },
+    back_to_list_path: 'bookmark_index_paginated',
+} %}
+
+{% endblock %}

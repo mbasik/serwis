@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.add_photo'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    {% include 'default/_form.html.twig' with {
+    page_title: 'title.photo_add',
+    attr: {
+    method: 'post',
+    action: url('photo_add')
+    },
+    back_to_list_path: 'photo_index',
+    } %}
+
+{% endblock %}

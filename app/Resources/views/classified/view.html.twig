@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if classified is defined and classified|length %}
+
+            <h2>{{ classified.name }}</h2>
+            {#<li>{{ classified.date }}</li>#}
+            {{ classified.content }}
+           <br><strong> {{ classified.price }} </strong>
+        <div class="row text-center">
+            <img src="{{ asset('web/uploads/photos') }}/{{ classified.photo }}" style="max-width: 600px;" class="img-rounded">
+        </div>
+
+                    <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                        <img src="{{ asset('uploads/photos') }}{{ classified.photo }}">
+                        <a href="{{ path('tag_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+                            Powrót
+                        </a>
+                    </div>
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+
+{% endblock %}

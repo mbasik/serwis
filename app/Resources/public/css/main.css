@@ -1,0 +1,89 @@
+h1{
+	color: black;
+}
+h2{
+	color: black;
+}
+h3{
+	color: black;
+}
+h5{
+	color: white;
+	font-size: 3em;
+	background-color: #0D3349;
+	width:23%;
+}
+div.login_label{
+	color: red;
+	margin: 20px 20px;
+}
+div.classified{
+	color: blue;
+	font-weight: bold;
+}
+div.notices{
+	color:red;
+    border-top: 35em;
+	padding-top: 50px;
+}
+div.button{
+	margin-left: 5em;
+}
+div.price{
+    margin-left: 15em;
+    font-size: 0.8em;
+	color: black;
+}
+div.kategorie{
+	padding-left: 2em;
+	padding-top: 10em;
+	margin: 10px 10px 10px 10px;
+	display: inline;
+	opacity: 0.5;
+}
+div.login_label {
+	margin-left: 1050px;
+	text-decoration: none;
+	list-style-type: none;
+}
+div.profile{
+}
+nav, article {
+	height: 150px;
+	margin: 1%;
+	font-size: 2em;
+}
+nav {
+	float: left;
+	width: 16%;
+	height: 50px;
+}
+article {
+	float:right;
+	width: 80%;
+	height: 50px;
+	color: white;
+	background:#0D3349;
+}
+footer{
+	margin-bottom: 3em;
+	float:center;
+}
+div.btn-group{
+	padding-left: 0.3em;
+}
+div.tag{
+	display: inline;
+}
+div.tags{
+    float: center;
+    margin-left: 80px;
+    margin-top: 40px;
+    padding-bottom:50px;
+}
+div.filter{
+    float:right;
+    width: 80%;
+    height: 50px;
+    color: black;
+}

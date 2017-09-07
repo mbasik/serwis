@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.users'|trans }}
+{% endblock %}
+
+{% block body %}
+<section id="portfolio" style="background:#222222">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{ 'title.users'|trans }}</h2>
+                <h3 class="section-subheading text-muted">
+                  Lorem ipsum dolor sit amet consectetur.<br><br>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+
+        {% if users is defined and users|length %}
+            {% for item in users %}
+                <div class="col-sm-3 foto" style="background:url('http://via.placeholder.com/350?text={{ item.username }}');background-position: center top;background-size: cover;">
+                  <div class="text-center infoo naame">
+                    {{ item.username }}<br>
+                    <a href="{{ url('user_edit', {'id': item.id}) }}">{{ 'edit'|trans }}</a>
+                    {% if item.hasRole('ROLE_ADMIN') %}
+                      <a href="{{ url('user_demote', {'id': item.id}) }}">{{ 'demote'|trans }}</a>
+                    {% else %}
+                      <a href="{{ url('user_promote', {'id': item.id}) }}">{{ 'promote'|trans }}</a>
+                    {% endif %}
+                  </div>
+                  <a href="{{ url('user_edit', {'id': item.id}) }}" class="infoo">
+                    <div class="curtain"></div>
+                  </a>
+                </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        {% else %}
+            <div class="aleert alert-warning" role="alert">
+                {{ 'message.empty_list'|trans }}
+            </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script>
+    $('.foto').hover(function(){
+      $(this).find('.infoo').toggle()
+    });
+  </script>
+{% endblock %}

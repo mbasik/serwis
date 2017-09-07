@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.bookmarks'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ 'title.bookmarks'|trans }}</h1>
+
+    {% if bookmarks is defined and bookmarks|length %}
+    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'label.id'|trans }}</th>
+                    <th>{{ 'label.URL'|trans }}</th>
+                    <th>{{ 'label.tags'|trans }}</th>
+                    <th scope="col">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>{{ 'label.actions'|trans }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bookmarks %}
+                    <tr>
+                        <td>{{ loop.index0 }}</td>
+
+                        <a href="/bookmark/{{ loop.index0 }}"> <td>{{ item.URL }}</td> </a>
+                         <td>
+                            <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                                <a href="{{ path('bookmark_view', {'id': item.Id}) }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                    {{ 'action.view'|trans }}
+                                </a>
+                            </div>
+                        </td>
+                    {% for Tag in bookmark.Tags %}
+                        <td>{{ Tag }}</td>
+                    {% endfor %}
+                     
+                 </tr>
+                {% endfor %}
+                   <td>
+                            <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                                <a href="{{ path('bookmark_add') }}" class="btn btn-default" title="{{ 'action.add'|trans }}">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    {{ 'add'|trans }}
+                                </a>
+                            </div>
+                        </td>
+                </tbody>
+
+    {% else %}
+    <p>
+        {{ 'message.empty_list'|trans }}
+    </p>
+    {% endif %}
+
+{% endblock %}

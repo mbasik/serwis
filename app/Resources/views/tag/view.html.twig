@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ url('classified_index') }}"><h5>{{ 'title.classifieds'|trans }}</h5></a>
+
+    <a href="{{ path('classified_index') }}">
+        <h3>Wszystkie ogłoszenia </a> >>  <a href="{{ path('tag_index') }}">
+    Kategorie </a> >>
+    {{ tag.name }} </h3>
+
+    <div class="tags">
+    {% if classifieds is defined and classifieds|length %}
+        {% for item in classifieds %}
+
+                  <br><h4>  {{ item.name }} </h4>
+                    <br> <strong>Cena:</strong>{{ item.price }}
+            <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                <a href="{{ path('classified_view', {'id': item.id}) }}" title="{{ 'action.view'|trans }}">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    {{ 'action.view'|trans }}
+                </a>
+            </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ url('tag_edit', {'id': tag.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
+                    <a href="{{ url('tag_delete', {'id': tag.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.delete'|trans }}</a>
+                {% endif %}
+
+        {% endfor %}
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="navigation text-center">
+            {{ pagerfanta(classifieds, 'twitter_bootstrap3_translated', { routeName: ('classified_index_paginated') }) }}
+        </div>
+    {% else %}
+        <div class="aleert alert-warning" role="alert">
+            {{ 'message.empty_list'|trans }}
+        </div>
+    {% endif %}
+
+    </div>
+    </div>
+
+    <a href="{{ url('tag_index') }}">Powrót</a>
+
+
+{% endblock %}
