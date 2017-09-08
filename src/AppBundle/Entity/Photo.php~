@@ -195,4 +195,17 @@ class Photo
     {
         return $this->classified;
     }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Photo
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 }

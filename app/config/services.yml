@@ -20,6 +20,12 @@ services:
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle\Entity\Tag
+    app.repository.user:
+        class: AppBundle\Repository\UserRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\User
+
 # app/config/services.yml
     app.form.bookmarks:
         class: AppBundle\Form\BookmarkType

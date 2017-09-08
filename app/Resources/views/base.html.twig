@@ -11,7 +11,11 @@
     <body>
     <div class="login_label">
 
-
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('users_index') }}">{{ 'label.users'|trans }}</a>
+            </li>
+        {% endif %}
     {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
         <li>
             <a href="{{ path('fos_user_profile_show') }}">{{ 'label.profil'|trans }}</a>

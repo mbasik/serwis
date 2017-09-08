@@ -21,7 +21,7 @@
                 </a>
             </div>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ url('classified_index') }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
+                    <a href="{{ url('classified_view', {'id': item.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
                 {% endif %}
 
         {% endfor %}

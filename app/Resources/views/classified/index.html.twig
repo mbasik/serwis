@@ -6,6 +6,7 @@
 
 
 {% block body %}
+
     <div class ="head">
         <a href="{{ url('classified_index') }}"><h5>{{ 'title.classifieds'|trans }}</h5></a>
     </div>
@@ -33,17 +34,11 @@
     {% endif %}
 
 
-
-    <nav>
-        <h4>Kategorie</h4>
-
-        <a href="{{ path('tag_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
-            {{ 'category'|trans }}
-        </a>
-    
-    </nav>
     <article>
     <div class="notices"></div>
+    <a href="{{ path('tag_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+        {{ 'category'|trans }}
+    </a>
 
 
     {% if classifieds is defined and classifieds|length %}

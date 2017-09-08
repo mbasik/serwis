@@ -149,4 +149,12 @@ class Tag
     {
         return $this->classifieds;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->classifieds = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 }

@@ -2,18 +2,17 @@
 /**
  * User type.
  */
-
 namespace AppBundle\Form;
 
 use AppBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\AbstractType;
 /**
  * Class UserType.
  *
@@ -22,52 +21,28 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(
-            'username',
-            TextType::class,
-            [
-                'label' => 'label.username',
-                'required' => true,
-                'attr' => [
-                    'max_length' => 64,
-                ],
-            ]
-        );
+
         $builder->add(
             'email',
-            EmailType::class,
+            TextType::class,
             [
                 'label' => 'label.email',
                 'required' => true,
                 'attr' => [
-                    'max_length' => 64,
+                    'max_length' => 45,
                 ],
             ]
         );
-        $builder->add(
-            'plainPassword',
-            RepeatedType::class,
-            array(
-                'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
-                'options' => array(
-                    'attr' => array(
-                        'class' => 'password-field',
-                    ),
-                ),
-                'required' => true,
-                'first_options'  => array('label' => 'password'),
-                'second_options' => array('label' => 'repeat.password'),
-            )
-        );
+
     }
 
     /**
-     * {@inheritdoc}
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -80,7 +55,7 @@ class UserType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getBlockPrefix()
     {

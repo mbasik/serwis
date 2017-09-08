@@ -1,8 +1,6 @@
 
-
-
 {% block body %}
-    <a href="{{ url('classified_index') }}"><h5>{{ 'title.classifieds' }}</h5></a>
+    <a href="{{ url('classified_index') }}"><h5>{{ 'title.classifieds'|trans }}</h5></a>
 
 
     {% include 'default/_form.html.twig' with {

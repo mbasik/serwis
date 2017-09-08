@@ -194,6 +194,24 @@
                        <source>label.tag_edit</source>
                        <target>Edytuj</target>
            </trans-unit>
+           <trans-unit id="label.phone_number">
+                        <source>label.phone_number</source>
+                        <target>Numer kontaktowy</target>
+           </trans-unit>
+           <trans-unit id="label.email">
+                         <source>label.email</source>
+                         <target>Adres email</target>
+           </trans-unit>
+           <trans-unit id="label.registration.success">
+                          <source>label.registration.success</source>
+                          <target>Rejestracja zakończyła się sukcesem- zapraszamy do naszego serwisu!</target>
+           </trans-unit>
+           <trans-unit id="message.created_successfully ">
+                           <source>message.created_successfully </source>
+                           <target>Dodano</target>
+           </trans-unit>
+
+
 
 
 

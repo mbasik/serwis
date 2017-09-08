@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -83,16 +84,6 @@ class ClassifiedType extends AbstractType
             )
         );
 
-
-        $builder->add(
-            'photo',
-            FileType::class,
-            [
-                'label' => 'label.photo',
-                'required' => true,
-            ]
-        );
-
         $builder->add(
             'tag',
             EntityType::class,
@@ -106,6 +97,30 @@ class ClassifiedType extends AbstractType
                 'label' => 'label.tag',
                 'required' => true,
             )
+        );
+        $builder->add(
+            'phone_number',
+            IntegerType::class,
+            [
+                'label' => 'label.phone_number',
+                'required' => true,
+                'attr' => [
+                    'max_length' => 18,
+                    'min_length' => 9,
+                ],
+            ]
+        );
+
+        $builder->add(
+            'email',
+            EmailType::class,
+            [
+                'label' => 'label.email',
+                'required' => true,
+                'attr' => [
+                    'max_length' => 64,
+                ],
+            ]
         );
 
     }

@@ -26,10 +26,7 @@ use Doctrine\ORM\Mapping\ClassMetadata;
  *     groups={"classified-default"},
  *     fields={"name",
  *              "content",
- *              "price",
  *              "createdAt",
- *              "photo",
- *              "tag"
  * }
  * )
  */
@@ -71,6 +68,46 @@ class Classified
      * )
      */
     protected $name;
+
+     /**
+      * Email.
+      *
+      * @var string $email
+      *
+      * @ORM\Column(
+      *     name="email",
+      *     type="string",
+      *     length=128,
+      *     nullable=false,
+      * )
+      *
+      * @Assert\NotBlank(
+      *     groups={"email-default"}
+      * )
+      * @Assert\Length(
+      *     groups={"email-default"},
+      *     min="3",
+      *     max="128",
+      * )
+      */
+    protected $email;
+
+     /**
+      * Phone number.
+      *
+      * @var integer $phone_number
+      *
+      * @ORM\Column(
+      *     name="phone_number",
+      *     type="integer",
+      *     nullable=false,
+      * )
+      *
+      * @Assert\NotBlank(
+      *     groups={"phone_number-default"}
+      * )
+      */
+    protected $phone_number;
 
     /**
      * Content.
@@ -124,18 +161,6 @@ class Classified
      */
     protected $createdAt;
 
-
-    /**
-     * Photo.
-     *
-     * @ORM\Column(type="string")
-     *
-     * @Assert\NotBlank(message="Dodaj zdjęcie")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
-     */
-
-   private $photo;
-
     /**
      * Tag
      *
@@ -176,6 +201,54 @@ class Classified
     {
         return $this->name;
     }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Classified
+     */
+     public function setEmail($email)
+     {
+        $this->email = $email;
+
+        return $this;
+     }
+
+    /**
+     * Get $email
+     *
+     * @return integer
+     */
+     public function getEmail()
+     {
+         return $this->email;
+     }
+
+      /**
+       * Set phone_number
+       *
+       * @param integer $phone_number
+       * @return Classified
+       */
+      public function setPhoneNumber($phone_number)
+       {
+          $this->phone_number = $phone_number;
+
+          return $this;
+       }
+
+      /**
+       * Get phone_number
+       *
+       * @return integer
+       */
+      public function getPhoneNumber()
+       {
+          return $this->phone_number;
+       }
+
+
 
     /**
      * Set content
@@ -245,31 +318,6 @@ class Classified
     {
         return $this->price;
     }
-
-     /**
-      * Get Photo
-      *
-      * @return string
-      */
-
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-     /**
-      * Set Photo
-      *
-      * @return string
-      */
-
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
 
 
     /**

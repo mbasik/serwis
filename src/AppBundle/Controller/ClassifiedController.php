@@ -76,6 +76,7 @@ class ClassifiedController extends Controller
         );
     }
 
+
     /**
      * Add action.
      *
@@ -100,26 +101,6 @@ class ClassifiedController extends Controller
             $this->get('app.repository.classified')->save($classified);
             $this->addFlash('success', 'message.created_successfully');
 
-
-            // $file stores the uploaded JPG file
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $classified->getPhoto();
-
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-
-            // Move the file to the directory where brochures are stored
-            $file->move(
-                $this->getParameter('photos_directory'),
-                $fileName
-            );
-
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $classified->setPhoto($fileName);
-
-            // ... persist the $product variable or any other work
-
             return $this->redirect($this->generateUrl('classified_index'));
         }
 
@@ -127,11 +108,6 @@ class ClassifiedController extends Controller
             'form' => $form->createView(),
         ));
 
-        $file = $classified->getPhoto();
-        $fileName = $fileUploader->upload($file);
-
-        $classified->setPhoto($fileName);
-        // ... persist the $classified variable or any other work
 
         return $this->redirectToRoute('classified_index');
 
@@ -193,7 +169,6 @@ class ClassifiedController extends Controller
     public function editAction(Request $request, Classified $classified)
     {
         $form = $this->createForm(ClassifiedType::class);
-        $form->remove('photo');
         $form->setData($classified);
         $form->handleRequest($request);
 

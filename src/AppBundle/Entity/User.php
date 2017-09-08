@@ -6,12 +6,15 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @package AppBundle\Entity
+ *
  * @ORM\Table(
  *     name="fos_user"
+ * )
+ * @ORM\Entity(
+ *     repositoryClass="AppBundle\Repository\UserRepository"
  * )
  */
 class User extends BaseUser
@@ -29,9 +32,16 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Classified", mappedBy="user")
+     * Classifieds.
+     *
+     * @var \Doctrine\Common\Collections\ArrayCollection $classifieds
+     *
+     * @ORM\ManyToMany(
+     *     targetEntity="Classified",
+     *     mappedBy="users",
+     * )
      */
-    private $classifieds;
+    protected $classifieds;
 
     /**
      * User constructor.
@@ -39,8 +49,9 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->classifieds = new ArrayCollection();
     }
+
+
 
     /**
      * Add classifieds
@@ -68,7 +79,7 @@ class User extends BaseUser
     /**
      * Get classifieds
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getClassifieds()
     {

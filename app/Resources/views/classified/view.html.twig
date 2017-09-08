@@ -9,20 +9,29 @@
             {#<li>{{ classified.date }}</li>#}
             {{ classified.content }}
            <br><strong> {{ classified.price }}zł {{ classified.user }}</strong>
-        <div class="row text-center">
-            <img src="{{ asset('web/uploads/photos') }}/{{ classified.photo }}" style="max-width: 600px;" class="img-rounded">
-        </div>
-
-                    <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
-                        <img src="{{ asset('uploads/photos') }}{{ classified.photo }}">
                         {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ url('classified_edit', {'id': classified.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
                             <a href="{{ url('classified_delete', {'id': classified.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.delete'|trans }}</a><br>
                         {% endif %}
+                        <br>
+        <a href="{{ path('classified_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
+            Powrót
+        </a>
+                        {% if is_granted('ROLE_USER') %}
+                            <div class="contact"">
+                            <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                               Zadaj pytanie ogłoszeniodawcy
+                            <br><br>Adres email {{ classified.email }}
+                            {%if ( classified.phonenumber | length > 8 ) %}
+                            <br>Telefon kontaktowy {{ classified.phonenumber }}
+                                {% else %}
 
-                        <a href="{{ path('classified_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
-                            Powrót
-                        </a>
+                            {% endif %}
+                            </div>
+                        {% endif %}
+
+                        <br><br>
+
                     </div>
 
     {% else %}

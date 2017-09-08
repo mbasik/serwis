@@ -18,7 +18,7 @@
     </article>
 
 
-    <div class="kategorie">
+
     {% if is_granted('ROLE_ADMIN') %}
         <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
             <a href="{{ path('tag_add') }}" class="btn btn-warning" title="{{ 'action.add'|trans }}">
@@ -28,7 +28,8 @@
         </div>
 
     {% endif %}
-
+    <div class="kategorie">
+<br>
     {% if tags is defined and tags|length %}
 
         {% for item in tags %}
