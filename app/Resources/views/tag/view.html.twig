@@ -7,12 +7,12 @@
         <h3>Wszystkie ogłoszenia </a> >>  <a href="{{ path('tag_index') }}">
     Kategorie </a> >>
     {{ tag.name }} </h3>
-
+<article>
     <div class="tags">
     {% if classifieds is defined and classifieds|length %}
         {% for item in classifieds %}
 
-                  <br><h4>  {{ item.name }} </h4>
+                 <br> <br> {{ item.name }}
                     <br> <strong>Cena:</strong>{{ item.price }}
             <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
                 <a href="{{ path('classified_view', {'id': item.id}) }}" title="{{ 'action.view'|trans }}">
@@ -21,8 +21,7 @@
                 </a>
             </div>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ url('tag_edit', {'id': tag.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
-                    <a href="{{ url('tag_delete', {'id': tag.id}) }}" class="btn btn-xl" style="padding:5px;">{{ 'button.delete'|trans }}</a>
+                    <a href="{{ url('classified_index') }}" class="btn btn-xl" style="padding:5px;">{{ 'button.edit'|trans }}</a>
                 {% endif %}
 
         {% endfor %}
@@ -38,10 +37,9 @@
         </div>
     {% endif %}
 
-    </div>
-    </div>
+
 
     <a href="{{ url('tag_index') }}">Powrót</a>
 
-
+</article>
 {% endblock %}

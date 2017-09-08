@@ -7,10 +7,10 @@
 {% block body %}
 {% include 'default/_form.html.twig' with {
     page_title: 'title.tag_delete',
-    page_title_param: {'%id%': tag.id},
+    page_title_param: {'%id%': tags.id},
     attr: {
         method: 'post',
-        action: url('tag_delete', {'id': tag.id}),
+        action: url('tag_delete', {'id': tags.id}),
     },
     back_to_list_path: 'tag_index',
 } %}

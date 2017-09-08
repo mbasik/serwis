@@ -14,6 +14,11 @@
     <a href="{{ path('classified_index') }}">
         <h3>Wszystkie ogłoszenia </a> >>Kategorie </h3>
 
+    <article>
+    </article>
+
+
+    <div class="kategorie">
     {% if is_granted('ROLE_ADMIN') %}
         <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
             <a href="{{ path('tag_add') }}" class="btn btn-warning" title="{{ 'action.add'|trans }}">
@@ -24,7 +29,6 @@
 
     {% endif %}
 
-    <div class="katergorie">
     {% if tags is defined and tags|length %}
 
         {% for item in tags %}
@@ -37,9 +41,6 @@
                 <a href="{{ path('tag_edit', {'id': item.id}) }}"  title="{{ 'action.edit'|trans }}">
                                     {{ 'action.edit'|trans }}
                 </a>
-                <a href="{{ path('tag_delete', {'id': item.id}) }}"  title="{{ 'action.delete'|trans }}">
-                                    {{ 'action.delete'|trans }}
-                </a>
 
             {% endif %}
 
@@ -50,6 +51,5 @@
         </div>
     {% endif %}
 
-    </div class="katergorie">
-    </div>
+
 {% endblock %}

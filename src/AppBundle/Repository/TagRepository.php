@@ -92,6 +92,4 @@ class TagRepository extends EntityRepository
         $this->_em->remove($tag);
         $this->_em->flush();
     }
-
-
 }

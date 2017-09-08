@@ -182,6 +182,20 @@
                      <source>label.password</source>
                      <target>Hasło</target>
            </trans-unit>
+           <trans-unit id="submit">
+                      <source>submit</source>
+                      <target>Wyślij</target>
+           </trans-unit>
+           <trans-unit id="title.classified.edit">
+                      <source>title.classified.edit</source>
+                      <target>Edycja ogłoszenia</target>
+           </trans-unit>
+           <trans-unit id="label.tag_edit">
+                       <source>label.tag_edit</source>
+                       <target>Edytuj</target>
+           </trans-unit>
+
+
 
 
 

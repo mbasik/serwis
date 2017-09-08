@@ -145,7 +145,7 @@ class ClassifiedController extends Controller
      * Delete action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
-     * @param \AppBundle\Entity\Classified                     $classified     Classified entity
+     * @param \AppBundle\Entity\Classified                    $classified    Classified entity
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
      *
@@ -170,6 +170,42 @@ class ClassifiedController extends Controller
 
         return $this->render(
             'classified/delete.html.twig',
+            ['classified' => $classified, 'form' => $form->createView()]
+        );
+    }
+
+
+    /**
+     * Edit action.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
+     * @param \AppBundle\Entity\Classified                    $classified    Classified entity
+     *
+     * @return \Symfony\Component\HttpFoundation\Response HTTP Response
+     *
+     * @Route(
+     *     "/{id}/edit",
+     *     requirements={"id": "[1-9]\d*"},
+     *     name="classified_edit",
+     * )
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, Classified $classified)
+    {
+        $form = $this->createForm(ClassifiedType::class);
+        $form->remove('photo');
+        $form->setData($classified);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->get('app.repository.classified')->save($classified);
+            $this->addFlash('success', 'message.updated_successfully');
+
+            return $this->redirectToRoute('classified_view', ['id' => $classified->getId()]);
+        }
+
+        return $this->render(
+            'classified/edit.html.twig',
             ['classified' => $classified, 'form' => $form->createView()]
         );
     }

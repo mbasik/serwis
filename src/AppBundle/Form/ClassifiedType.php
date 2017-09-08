@@ -63,10 +63,26 @@ class ClassifiedType extends AbstractType
                 'label' => 'label.price',
                 'required' => true,
                 'attr' => [
-                    'max_length' => 10,
+                    'min' => 1,
                 ],
             ]
         );
+
+        $builder->add(
+            'tag',
+            EntityType::class,
+            array(
+                'class' => 'AppBundle:Tag',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')->orderBy('t.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Wybierz...',
+                'label' => 'label.tag',
+                'required' => true,
+            )
+        );
+
 
         $builder->add(
             'photo',

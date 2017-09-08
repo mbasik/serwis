@@ -35,7 +35,7 @@
 
 
     <nav>
-        <h4>Szukaj wg. kategorii</h4>
+        <h4>Kategorie</h4>
 
         <a href="{{ path('tag_index') }}" class="btn btn-default" title="{{ 'action.view'|trans }}">
             {{ 'category'|trans }}
@@ -43,14 +43,6 @@
     
     </nav>
     <article>
-        {% if is_granted('ROLE_USER') %}
-            <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
-                <a href="{{ path('classified_add') }}" class="btn btn-warning" title="{{ 'action.add'|trans }}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    {{ 'add'|trans }}
-                </a>
-            </div>
-        {% endif %}
     <div class="notices"></div>
 
 
@@ -59,18 +51,7 @@
                 <div class="classified">
                 <br><br><a href="{{ path('classified_view', {'id': item.id}) }}" title="{{ 'action.view'|trans }}"> <br>{{ item.name }}    </a>
                 </div>
-                <div class="price"> <strong>Cena:</strong>{{ item.price }}</div>
-
-                {% if is_granted('ROLE_ADMIN') %}
-
-                    <td>
-                        <a href="{{ path('classified_delete', {'id': item.id}) }}" class="btn btn-danger" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
-                        </a>
-                    </td>
-
-                {% endif %}
-
+                <div class="price"> <strong>Cena:</strong>{{ item.price }}zł</div>
 
 
 

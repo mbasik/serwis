@@ -56,12 +56,12 @@ class Photo
     protected $id;
 
     /**
-     * Name.
+     * Title.
      *
-     * @var string $name
+     * @var string $title
      *
      * @ORM\Column(
-     *     name="name",
+     *     name="title",
      *     type="string",
      *     length=64,
      *     nullable=false,
@@ -70,7 +70,7 @@ class Photo
      *     groups={"photo-default"},
      * )
      */
-    protected $name;
+    protected $title;
 
     /**
      * Filename.
@@ -118,26 +118,26 @@ class Photo
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      * @return Photo
      */
-    public function setName($name)
+    public function setName($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**

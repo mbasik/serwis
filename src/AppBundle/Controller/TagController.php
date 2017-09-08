@@ -51,7 +51,7 @@ class TagController extends Controller
         );
     }
     /**
-         * View action.
+     * View action.
      *
      * @param Tag     $tag  Tag entity
      * @param integer $page Page number
@@ -148,8 +148,16 @@ class TagController extends Controller
     }
 
 
+
+
+
+
+
+
     /**
      * Delete action.
+     *
+     *
      *
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
      * @param \AppBundle\Entity\Tag                     $tag     Tag entity
@@ -165,12 +173,6 @@ class TagController extends Controller
      */
     public function deleteAction(Request $request, Tag $tag)
     {
-        if ($tag->getClassifieds()->count()) {
-            $this->addFlash('danger', 'message.cannot_delete');
-
-            return $this->redirectToRoute('tag_view', ['id' => $tag->getId()]);
-        }
-
         $form = $this->createForm(FormType::class, $tag);
         $form->handleRequest($request);
 
@@ -183,7 +185,7 @@ class TagController extends Controller
 
         return $this->render(
             'tag/delete.html.twig',
-            ['tag' => $tag, 'form' => $form->createView()]
+            ['tags' => $tag, 'form' => $form->createView()]
         );
     }
 

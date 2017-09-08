@@ -6,14 +6,13 @@
 
 {% block body %}
 {% include 'default/_form.html.twig' with {
-    page_title: 'title.tag_edit',
-    page_title: 'title.tag_edit',
+    page_title: 'label.tag_edit'|trans,
     page_title_param: {'%id%': tag.id},
     attr: {
         method: 'post',
         action: url('tag_edit', {'id': tag.id}),
     },
-    back_to_list_path: 'tag_index',
+    back_to_list_path: 'classified_index',
 } %}
 
 {% endblock %}

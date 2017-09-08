@@ -27,7 +27,7 @@ use Doctrine\ORM\Mapping\ClassMetadata;
  *     fields={"name",
  *              "content",
  *              "price",
- *              "created_at",
+ *              "createdAt",
  *              "photo",
  *              "tag"
  * }
@@ -100,6 +100,14 @@ class Classified
      */
     protected $price;
 
+    /**
+     * User
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="classifieds")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+        protected $user;
+
      /**
      * Created at.
      *
@@ -117,18 +125,16 @@ class Classified
     protected $createdAt;
 
 
-     /**
-      * Photo.
-      *
-      * @var string $photo
-      *
-      * @ORM\Column(
-      *     name="photo",
-      *     type="string",
-      *     nullable=false,
-      * )
-      */
-     protected $photo;
+    /**
+     * Photo.
+     *
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Dodaj zdjęcie")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+
+   private $photo;
 
     /**
      * Tag
@@ -193,6 +199,28 @@ class Classified
     {
         return $this->content;
     }
+     /**
+      * Set user
+      *
+      * @param \AppBundle\Entity\User $user
+      * @return Classified
+      */
+     public function setUser(\AppBundle\Entity\User $user = null)
+      {
+         $this->user = $user;
+
+         return $this;
+      }
+
+      /**
+       * Get user
+       *
+       * @return \AppBundle\Entity\User
+       */
+      public function getUser()
+       {
+          return $this->user;
+       }
 
 
     /**
@@ -218,29 +246,31 @@ class Classified
         return $this->price;
     }
 
+     /**
+      * Get Photo
+      *
+      * @return string
+      */
 
-       /**
-        * Set photo
-        *
-        * @param string $photo
-        * @return Book
-        */
-       public function setPhoto($photo)
-       {
-           $this->photo = $photo;
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
 
-           return $this;
-       }
+     /**
+      * Set Photo
+      *
+      * @return string
+      */
 
-       /**
-        * Get photo
-        *
-        * @return string
-        */
-       public function getPhoto()
-       {
-           return $this->photo;
-       }
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+
 
     /**
         * Set tag

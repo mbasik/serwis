@@ -43,6 +43,7 @@ class UserController extends Controller
         );
     }
 
+
     /**
      * Edit action.
      *

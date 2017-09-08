@@ -20,6 +20,7 @@ div.login_label{
 div.classified{
 	color: blue;
 	font-weight: bold;
+	font-size: 0.8em ;
 }
 div.notices{
 	color:red;
@@ -30,7 +31,7 @@ div.button{
 	margin-left: 5em;
 }
 div.price{
-    margin-left: 15em;
+    margin-left: 35em;
     font-size: 0.8em;
 	color: black;
 }
@@ -38,8 +39,7 @@ div.kategorie{
 	padding-left: 2em;
 	padding-top: 10em;
 	margin: 10px 10px 10px 10px;
-	display: inline;
-	opacity: 0.5;
+	display: block;
 }
 div.login_label {
 	margin-left: 1050px;
@@ -55,15 +55,17 @@ nav, article {
 }
 nav {
 	float: left;
-	width: 16%;
+	width: 5%;
 	height: 50px;
 }
 article {
 	float:right;
-	width: 80%;
+	padding-left: 20px;
+	width: 90%;
 	height: 50px;
-	color: white;
+	color: black;
 	background:#0D3349;
+	font-size: 1.8em;
 }
 footer{
 	margin-bottom: 3em;
@@ -80,10 +82,14 @@ div.tags{
     margin-left: 80px;
     margin-top: 40px;
     padding-bottom:50px;
+	font-size: 0.8em;
 }
 div.filter{
     float:right;
     width: 80%;
     height: 50px;
     color: black;
+}
+div.navigation_text-center{
+	font-size: 0.5em;
 }
