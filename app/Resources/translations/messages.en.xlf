@@ -166,9 +166,13 @@
                     <source>title.profile</source>
                     <target>Profil użytkownika</target>
            </trans-unit>
-           <trans-unit id="title.books.delete">
-                     <source>title.books.delete</source>
+           <trans-unit id="title.classified.delete">
+                     <source>title.classified.delete</source>
                      <target>Czy chcesz usunąć?</target>
+           </trans-unit>
+           <trans-unit id="title.user.delete">
+                      <source>title.user.delete</source>
+                      <target>Czy chcesz usunąć?</target>
            </trans-unit>
            <trans-unit id="delete">
                      <source>delete</source>
@@ -210,6 +214,11 @@
                            <source>message.created_successfully </source>
                            <target>Dodano</target>
            </trans-unit>
+           <trans-unit id="title.tags.edit">
+                            <source>title.tags.edit</source>
+                            <target>Edytuj</target>
+           </trans-unit>
+
 
 
 

@@ -74,7 +74,7 @@ class UserController extends Controller
             $this->get('app.repository.user')->save($user);
             $this->addFlash('success', 'message.created_successfully');
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('users_index');
         }
 
         return $this->render(
@@ -102,7 +102,7 @@ class UserController extends Controller
      */
     public function deleteAction(User $user, Request $request)
     {
-        $form = $this->createForm(FormType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

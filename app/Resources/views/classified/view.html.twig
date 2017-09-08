@@ -25,9 +25,10 @@
                             {%if ( classified.phonenumber | length > 8 ) %}
                             <br>Telefon kontaktowy {{ classified.phonenumber }}
                                 {% else %}
-
-                            {% endif %}
-                            </div>
+                                    {% endif %}
+                           {% else %}
+                             <div class="contact">  <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a> lub <a href="{{ path('fos_user_security_login') }}">zaloguj</a>, w celu skontaktowania z ogłoszeniodawcą
+                             </div>
                         {% endif %}
 
                         <br><br>
