@@ -109,7 +109,7 @@ class UserController extends Controller
             $this->get('app.repository.user')->delete($user);
             $this->addFlash('success', 'message.created_successfully');
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('users_index');
         }
 
         return $this->render(

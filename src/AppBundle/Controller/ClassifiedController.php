@@ -98,7 +98,13 @@ class ClassifiedController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->get('app.repository.classified')->save($classified);
+          /**  $classified->setUser(
+                $this->getUser()
+            );
+          */  $user = $this->container->get('security.context')->getToken()->getUser();
+          var_dump($user);
+           $classified->setUser($user);
+           $this->get('app.repository.classified')->save($classified);
             $this->addFlash('success', 'message.created_successfully');
 
             return $this->redirect($this->generateUrl('classified_index'));

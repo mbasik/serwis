@@ -14,6 +14,8 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 
 
 /**
+ * Class User.
+ *
  * @package AppBundle\Entity
  *
  * @ORM\Table(
@@ -42,9 +44,9 @@ class User extends BaseUser
      *
      * @var \Doctrine\Common\Collections\ArrayCollection $classifieds
      *
-     * @ORM\ManyToMany(
+     * @ORM\OneToMany(
      *     targetEntity="Classified",
-     *     mappedBy="users",
+     *     mappedBy="user",
      * )
      */
     protected $classifieds;

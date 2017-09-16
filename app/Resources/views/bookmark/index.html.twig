@@ -41,14 +41,15 @@
                  </tr>
                 {% endfor %}
                    <td>
-                            <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
-                                <a href="{{ path('bookmark_add') }}" class="btn btn-default" title="{{ 'action.add'|trans }}">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    {{ 'add'|trans }}
-                                </a>
-                            </div>
-                        </td>
-                </tbody>
+                       <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+                           <a href="{{ path('bookmark_add') }}" class="btn btn-default" title="{{ 'action.add'|trans }}">
+                               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                               {{ 'add'|trans }}
+                           </a>
+                       </div>
+                   </td>
+            </tbody>
+    </table>
 
     {% else %}
     <p>
